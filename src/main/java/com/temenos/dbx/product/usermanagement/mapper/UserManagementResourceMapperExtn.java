@@ -38,7 +38,7 @@ public class UserManagementResourceMapperExtn implements DBPAPIMapper<Resource> 
         map.put(BankResource.class, BankResourceImpl.class);
         map.put(CustomerIdentityAttributesResource.class, CustomerIdentityAttributesResourceImpl.class);
         map.put(PushExternalEventResource.class, PushExternalEventResourceImpl.class);
-        map.put(InfinityUserManagementResource.class, InfinityUserManagementResourceImpl.class);
+        map.put(InfinityUserManagementResource.class, InfinityUserManagementResourceImplExtn.class);
         return map;
     }
 }

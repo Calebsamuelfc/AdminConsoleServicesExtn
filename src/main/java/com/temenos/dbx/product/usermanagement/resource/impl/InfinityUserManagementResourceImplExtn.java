@@ -84,11 +84,13 @@ import java.util.concurrent.Callable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class InfinityUserManagementResourceImplExtn extends InfinityUserManagementResourceImpl {
     LoggerUtil logger = new LoggerUtil(InfinityUserManagementResourceImplExtn.class);
+    private static final Logger LOG = Logger.getLogger(InfinityUserManagementResourceImplExtn.class);
 
     SimpleDateFormat idFormatter = new SimpleDateFormat("yyMMddHHmmssSSS");
 
@@ -120,8 +122,8 @@ public class InfinityUserManagementResourceImplExtn extends InfinityUserManageme
         jsonObject.add("userDetails", (JsonElement)userDetailsJsonObject);
         String id = (userDetailsJsonObject.has("id") && !userDetailsJsonObject.get("id").isJsonNull()) ? userDetailsJsonObject.get("id").getAsString() : null;
 
-        this.logger.error("29032023 id:" + id);
-        this.logger.error("29032023 validateInputResponse" + String.valueOf(validateinput(jsonObject, result, map, request, isContractValidationRequired, id)));
+        LOG.error("29032023 id:" + id);
+        LOG.error("29032023 validateInputResponse" + String.valueOf(validateinput(jsonObject, result, map, request, isContractValidationRequired, id)));
 
         if (validateinput(jsonObject, result, map, request, isContractValidationRequired, id)) {
             InfinityUserManagementBusinessDelegate infinityUserManagementBusinessDelegate = (InfinityUserManagementBusinessDelegate)DBPAPIAbstractFactoryImpl.getBusinessDelegate(InfinityUserManagementBusinessDelegate.class);

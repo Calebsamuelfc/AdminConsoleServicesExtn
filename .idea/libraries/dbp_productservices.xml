@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="dbp-productservices">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../dbp-productservices.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

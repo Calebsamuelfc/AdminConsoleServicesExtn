@@ -181,8 +181,8 @@ public class InfinityUserManagementResourceImplExtn implements InfinityUserManag
             postParametersMap.put("removedCompanies", stringifyForVelocityTemplate(removedCompanies));
             postParametersMap.put("signatoryGroups", stringifyForVelocityTemplate(signatoryGroups));
             String dbpServicesClaimsToken = DBPServices.getDBPServicesClaimsToken(requestInstance);
-            LOG.error(  "20230327 + dbpServicesClaimsToken: "  + dbpServicesClaimsToken);
-            LOG.error(  "20230327 + postParametersMap: "  + postParametersMap.toString());
+            LOG.error(  "29032023 + dbpServicesClaimsToken: "  + dbpServicesClaimsToken);
+            LOG.error(  "29032023 + postParametersMap: "  + postParametersMap.toString());
             JSONObject editInfinityUserResponse = this.infinityUserManagementBusinessDelegate.editInfinityUser(postParametersMap, dbpServicesClaimsToken);
             if (editInfinityUserResponse == null || !editInfinityUserResponse.has("opstatus") || editInfinityUserResponse
                     .getInt("opstatus") != 0) {

@@ -6,10 +6,7 @@ import com.dbp.core.api.factory.BackendDelegateFactory;
 import com.dbp.core.api.factory.BusinessDelegateFactory;
 import com.dbp.core.api.factory.ResourceFactory;
 import com.dbp.core.api.factory.impl.DBPAPIAbstractFactoryImpl;
-import com.kony.adminconsole.service.customer.mapper.CustomerBackendDelegateMapper;
-import com.kony.adminconsole.service.customer.mapper.CustomerBusinessDelegateMapper;
-import com.kony.adminconsole.service.customer.mapper.CustomerResourceMapper;
-import com.kony.adminconsole.service.customer.mapper.CustomerResourceMapperExtn;
+import com.kony.adminconsole.service.customer.mapper.*;
 import com.konylabs.middleware.servlet.IntegrationCustomServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +19,7 @@ public class CustomerServletExtn extends HttpServlet {
         ((ResourceFactory)DBPAPIAbstractFactoryImpl.getInstance().getFactoryInstance(ResourceFactory.class))
                 .registerResourceMappings((DBPAPIMapper)new CustomerResourceMapperExtn(), APIImplementationTypes.EXTENSION);
         ((BusinessDelegateFactory)DBPAPIAbstractFactoryImpl.getInstance().getFactoryInstance(BusinessDelegateFactory.class))
-                .registerBusinessDelegateMappings((DBPAPIMapper)new CustomerBusinessDelegateMapper(), APIImplementationTypes.BASE);
+                .registerBusinessDelegateMappings((DBPAPIMapper)new CustomerBusinessDelegateMapperExtn(), APIImplementationTypes.EXTENSION);
         ((BackendDelegateFactory)DBPAPIAbstractFactoryImpl.getInstance().getFactoryInstance(BackendDelegateFactory.class))
                 .registerBackendDelegateMappings((DBPAPIMapper)new CustomerBackendDelegateMapper(), APIImplementationTypes.BASE);
     }

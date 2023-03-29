@@ -119,6 +119,10 @@ public class InfinityUserManagementResourceImplExtn extends InfinityUserManageme
         JsonObject userDetailsJsonObject = userDetailsElement.getAsJsonObject();
         jsonObject.add("userDetails", (JsonElement)userDetailsJsonObject);
         String id = (userDetailsJsonObject.has("id") && !userDetailsJsonObject.get("id").isJsonNull()) ? userDetailsJsonObject.get("id").getAsString() : null;
+
+        this.logger.error("29032023 id:" + id);
+        this.logger.error("29032023 validateInputResponse" + String.valueOf(validateinput(jsonObject, result, map, request, isContractValidationRequired, id)));
+
         if (validateinput(jsonObject, result, map, request, isContractValidationRequired, id)) {
             InfinityUserManagementBusinessDelegate infinityUserManagementBusinessDelegate = (InfinityUserManagementBusinessDelegate)DBPAPIAbstractFactoryImpl.getBusinessDelegate(InfinityUserManagementBusinessDelegate.class);
             DBXResult dbxResult = infinityUserManagementBusinessDelegate.editInfinityUser(jsonObject, request.getHeaderMap());
